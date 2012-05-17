@@ -19,7 +19,7 @@ public class ProductServiceConfig extends GuiceServletContextListener {
             protected void configureServlets() {
                 bind(ProductService.class).asEagerSingleton();
 
-                final Map<String, String> featureMap = new HashMap<String, String>();
+                final Map<String, String> featureMap = new HashMap<>();
                 featureMap.put(JSONConfiguration.FEATURE_POJO_MAPPING, Boolean.TRUE.toString());
                 serve("/*").with(GuiceContainer.class, featureMap);
             }
