@@ -16,6 +16,7 @@
         <junit.version>4.10</junit.version>
         <!-- BUILD -->
         <compiler.version>2.4</compiler.version>
+        <jar.version>2.4</jar.version>
         <resources.version>2.5</resources.version>
         <shade.version>1.6</shade.version>
     </properties>
@@ -68,6 +69,18 @@
                 <version>${resources.version}</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${jar.version}</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>net.nowhere.service.product.environment.Start</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
             <plugin>
