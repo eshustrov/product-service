@@ -17,6 +17,7 @@
         <!-- BUILD -->
         <compiler.version>2.4</compiler.version>
         <resources.version>2.5</resources.version>
+        <shade.version>1.6</shade.version>
     </properties>
 
     <dependencies>
@@ -68,6 +69,19 @@
                 <configuration>
                     <encoding>UTF-8</encoding>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>${shade.version}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
