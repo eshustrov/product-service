@@ -6,10 +6,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Path("/")
-@Produces(MediaType.TEXT_PLAIN)
+@Produces(MediaType.APPLICATION_JSON)
 public class ProductService {
     @GET
-    public String test() {
-        return "test";
+    public Product test() {
+        return new Product("test");
     }
 }

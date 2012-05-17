@@ -32,6 +32,11 @@
             <artifactId>jersey-guice</artifactId>
             <version>${jersey.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
         <!-- TEST -->
         <dependency>
             <groupId>junit</groupId>
