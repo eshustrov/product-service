@@ -11,6 +11,7 @@ public class ProductServiceConfig extends GuiceServletContextListener {
         return Guice.createInjector(new JerseyServletModule() {
             @Override
             protected void configureServlets() {
+                install(new DatabaseModule());
                 install(new ServiceModule());
             }
         });
