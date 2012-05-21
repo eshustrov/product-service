@@ -1,8 +1,8 @@
 package net.nowhere.service.product.service;
 
 import com.google.inject.Inject;
+import org.springframework.jdbc.core.JdbcTemplate;
 
-import javax.sql.DataSource;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -11,16 +11,16 @@ import javax.ws.rs.core.MediaType;
 @Path("/")
 @Produces(MediaType.APPLICATION_JSON)
 public class ProductService {
-    private final DataSource dataSource;
+    private final JdbcTemplate database;
 
     @Inject
-    public ProductService(final DataSource dataSource) {
-        this.dataSource = dataSource;
+    public ProductService(final JdbcTemplate database) {
+        this.database = database;
     }
 
     @GET
     public Product test() {
-        System.out.println("dataSource: " + dataSource);
+        System.out.println("database: " + database);
         return new Product("test");
     }
 }
