@@ -21,11 +21,11 @@ public class DatabaseStructureModule extends AbstractModule {
 
         @Inject
         public DatabaseScriptRunner(final JdbcTemplate database) {
-            final String commands = readStream(getClass().getResourceAsStream("/structure.sql"));
-            database.execute(commands);
+            database.execute(readScript("/structure.sql"));
         }
 
-        private static String readStream(final InputStream stream) {
+        private static String readScript(final String script) {
+            final InputStream stream = DatabaseScriptRunner.class.getResourceAsStream(script);
             try (final BufferedReader reader = new BufferedReader(new InputStreamReader(stream, UTF8))) {
                 final StringBuilder builder = new StringBuilder();
                 String line;
@@ -34,7 +34,7 @@ public class DatabaseStructureModule extends AbstractModule {
                 }
                 return builder.toString();
             } catch (IOException e) {
-                throw new RuntimeException("Cannot read stream", e);
+                throw new RuntimeException("Cannot read database script: " + script, e);
             }
         }
     }
