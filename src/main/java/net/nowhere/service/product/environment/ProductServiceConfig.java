@@ -12,6 +12,7 @@ public class ProductServiceConfig extends GuiceServletContextListener {
             @Override
             protected void configureServlets() {
                 install(new DatabaseModule());
+                install(new DatabaseStructureModule());
                 install(new ServiceModule());
             }
         });
