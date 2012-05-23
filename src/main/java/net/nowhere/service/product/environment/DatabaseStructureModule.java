@@ -16,7 +16,7 @@ public class DatabaseStructureModule extends AbstractModule {
         bind(DatabaseScriptRunner.class).asEagerSingleton();
     }
 
-    public static class DatabaseScriptRunner {
+    private static class DatabaseScriptRunner {
         private static final Charset UTF8 = Charset.forName("UTF-8");
 
         @Inject
